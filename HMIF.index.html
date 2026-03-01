@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apa itu HMIF? | Kevin Portfolio</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --bg: #050507;
+            --card: rgba(18, 18, 20, 0.8);
+            --accent: #007aff;
+            --text: #ffffff;
+            --text-dim: #a1a1a6;
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body { 
+            background: var(--bg);
+            color: var(--text);
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* CONTAINER UTAMA: Kunci kerapihan ada di sini */
+        .content-wrapper {
+            max-width: 600px;
+            width: 100%;
+            display: flex;
+            flex-direction: column; /* Mengatur elemen berurutan ke bawah */
+            align-items: center;    /* Membuat semua elemen di tengah horizontal */
+            text-align: center;     /* Membuat teks rata tengah */
+            background: var(--card);
+            padding: 40px;
+            border-radius: 30px;
+            border: 1px solid var(--border);
+            backdrop-filter: blur(10px);
+        }
+
+        .logo-hmif {
+            width: 150px; 
+            height: auto;
+            border-radius: 15px; /* Sedikit lengkung biar gak tajam */
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            font-size: 2rem;
+            margin: 15px 0;
+            color: var(--accent);
+        }
+
+        p {
+            color: var(--text-dim);
+            line-height: 1.6;
+            font-size: 1.05rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-back {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 20px;
+            padding: 12px 28px;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 122, 255, 0.3);
+        }
+
+        .btn-back:hover { 
+            transform: translateY(-3px);
+            box-shadow: 0 15px 25px rgba(0, 122, 255, 0.4);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="content-wrapper">
+        <img src="HMIF.jpeg" alt="Logo HMIF" class="logo-hmif">
+
+        <h1>Tentang HMIF</h1>
+
+        <p>
+            <strong>HMIF (Himpunan Mahasiswa Informatika)</strong> adalah organisasi kemahasiswaan di Universitas Multimedia Nusantara yang menjadi wadah bagi mahasiswa Teknik Informatika untuk mengembangkan potensi akademik maupun non-akademik. 
+        </p>
+        <p>
+            Di sini, anggota belajar mengenai kepemimpinan, kerja sama tim, serta memperdalam ilmu di bidang teknologi informasi melalui berbagai program kerja kreatif dan inovatif.
+        </p>
+
+        <a href="index.html#experience" class="btn-back">
+            <i class="fas fa-arrow-left"></i> Kembali ke Portofolio
+        </a>
+    </div>
+
+</body>
+</html>
