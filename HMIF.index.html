@@ -3,104 +3,105 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apa itu HMIF? | Kevin Portfolio</title>
+    <title>Kevin | Detail</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
             --bg: #050507;
-            --card: rgba(18, 18, 20, 0.8);
+            --card: rgba(18, 18, 20, 0.9);
             --accent: #007aff;
             --text: #ffffff;
             --text-dim: #a1a1a6;
             --border: rgba(255, 255, 255, 0.1);
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body { 
-            background: var(--bg);
-            color: var(--text);
-            font-family: -apple-system, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            margin: 0;
-            padding: 20px;
+            background-color: var(--bg);
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px),
+                linear-gradient(rgba(5, 5, 7, 0.9), rgba(5, 5, 7, 0.9)), /* Overlay lebih gelap biar teks makin jelas */
+                url('Foto HMIF.jpeg'); /* Ganti sesuai file lo */
+            background-size: 40px 40px, 40px 40px, cover, cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: var(--text); 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
+            line-height: 1.6;
         }
 
-        .container {
-            max-width: 600px;
-            background: var(--card);
-            padding: 40px;
-            border-radius: 30px;
-            border: 1px solid var(--border);
-            backdrop-filter: blur(20px);
+        /* KOTAK KONTEN UTAMA */
+        .page {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 80px 20px 100px; /* Jarak atas ditambah karena header dihapus */
+        }
+
+        .card { 
+            background: var(--card); 
+            padding: 30px; 
+            border-radius: 28px; 
+            border: 1px solid var(--border); 
+            margin-bottom: 25px; 
+            backdrop-filter: blur(15px);
             text-align: center;
         }
-        
-        .logo-hmif {
-            width: 150px; 
-            height: auto;
-            border-radius: 15px; /* Sedikit lengkung biar gak tajam */
+
+        .logo-img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
             margin-bottom: 20px;
         }
 
-        h1 {
-            font-size: 2rem;
-            margin: 15px 0;
-            color: var(--accent);
-        }
+        h1 { font-size: 2.2rem; color: var(--accent); margin-bottom: 15px; }
+        p { color: var(--text-dim); margin-bottom: 25px; text-align: center; font-size: 1.05rem; }
 
-        p {
-            color: var(--text-dim);
-            line-height: 1.6;
-            font-size: 1.05rem;
-            margin-bottom: 20px;
-        }
-
-        .btn-back {
+        /* TOMBOL BIRU DI BAWAH */
+        .btn-link {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            margin-top: 20px;
-            padding: 12px 28px;
             background: var(--accent);
             color: white;
-            text-decoration: none;
+            padding: 12px 30px;
             border-radius: 50px;
-            font-weight: bold;
+            text-decoration: none;
+            font-weight: 700;
             transition: 0.3s;
             box-shadow: 0 10px 20px rgba(0, 122, 255, 0.3);
         }
 
-        .btn-back:hover { 
-            transform: translateY(-3px);
-            box-shadow: 0 15px 25px rgba(0, 122, 255, 0.4);
+        .btn-link:hover { transform: translateY(-3px); box-shadow: 0 15px 30px rgba(0, 122, 255, 0.5); }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .card { padding: 25px 20px; }
+            .page { padding-top: 40px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="content-wrapper">
-        <img src="HMIF.jpeg" alt="Logo HMIF" class="logo-hmif">
-
-        <h1>Tentang HMIF</h1>
-
-        <p>
+    <main class="page">
+        <div class="card">
+            <img src="HMIF.jpeg" class="logo-img">
+            <h1>Tentang HMIF</h1>
+            <p>
             <strong>HMIF (Himpunan Mahasiswa Informatika)</strong> adalah organisasi kemahasiswaan di Universitas Multimedia Nusantara yang menjadi wadah bagi mahasiswa Teknik Informatika untuk mengembangkan potensi akademik maupun non-akademik. 
         </p>
         <p>
             Di sini, anggota belajar mengenai kepemimpinan, kerja sama tim, serta memperdalam ilmu di bidang teknologi informasi melalui berbagai program kerja kreatif dan inovatif.
         </p>
-
-        <a href="index.html#experience" class="btn-back">
-            <i class="fas fa-arrow-left"></i> Kembali ke Portofolio
-        </a>
-    </div>
+            <a href="index.html#experience" class="btn-link">
+                <i class="fas fa-arrow-left"></i> Kembali ke Portofolio
+            </a>
+        </div>
+    </main>
 
 </body>
-
 </html>
-
-
-
-
