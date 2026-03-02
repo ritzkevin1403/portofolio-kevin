@@ -19,7 +19,6 @@
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
-        /* Pengaturan Background Utama dengan pola Grid Futuristik */
         body { 
             background-color: var(--bg);
             background-image: 
@@ -32,7 +31,7 @@
             overflow-x: hidden;
         }
 
-        /* Navigasi Dock yang melayang di bawah */
+        /* FIX 1: NAVIGASI BISA DIGESER DI HP */
         nav {
             position: fixed; bottom: -100px; left: 50%; transform: translateX(-50%);
             background: rgba(20, 20, 22, 0.7); backdrop-filter: blur(30px);
@@ -40,28 +39,36 @@
             z-index: 1000; border: 1px solid var(--border);
             transition: all 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            
+            /* Tambahan agar bisa scroll horizontal di layar sempit */
+            max-width: 95%;
+            overflow-x: auto;
+            white-space: nowrap;
+            scrollbar-width: none; /* Sembunyikan scrollbar Firefox */
         }
+        nav::-webkit-scrollbar { display: none; } /* Sembunyikan scrollbar Chrome/Safari */
+        
         nav.show-nav { bottom: 30px; }
-        nav a { color: var(--text-dim); text-decoration: none; font-size: 0.8rem; padding: 10px 18px; border-radius: 30px; transition: 0.3s; font-weight: 500; cursor: pointer; }
+        nav a { 
+            color: var(--text-dim); text-decoration: none; font-size: 0.8rem; 
+            padding: 10px 18px; border-radius: 30px; transition: 0.3s; 
+            font-weight: 500; cursor: pointer; flex-shrink: 0; /* Agar menu tidak menyusut */
+        }
         nav a.active { color: #fff; background: var(--accent); box-shadow: 0 0 15px var(--accent-glow); }
 
-        /* Sistem Transisi antar Halaman */
         .page { display: none; min-height: 100vh; padding: 40px 20px 150px; max-width: 750px; margin: 0 auto; }
         .page.active { display: block; animation: pageFade 0.6s ease forwards; }
         @keyframes pageFade { from { opacity: 0; transform: translateY(15px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Desain Kartu (Card) */
         h2 { font-size: 1.8rem; color: var(--accent); margin: 35px 0 20px; display: flex; align-items: center; gap: 12px; text-transform: uppercase; letter-spacing: 1px; }
         .card { background: var(--card); padding: 25px; border-radius: 28px; border: 1px solid var(--border); margin-bottom: 20px; backdrop-filter: blur(15px); }
         
-        /* List Data Diri */
         .data-list { list-style: none; }
         .data-list li { display: flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid var(--border); }
         .data-list li:last-child { border: none; }
         .label { color: var(--text-dim); font-size: 0.9rem; font-weight: 500; }
         .value { text-align: right; font-weight: 600; }
 
-        /* Pengaturan Grid Organisasi */
         .org-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
         .org-card { background: var(--card); border-radius: 24px; overflow: hidden; border: 1px solid var(--border); transition: 0.3s; cursor: pointer; }
         .org-card:hover { border-color: var(--accent); transform: translateY(-5px); }
@@ -70,24 +77,20 @@
         .org-name { font-weight: 700; font-size: 1rem; color: var(--accent); }
         .org-role { font-size: 0.8rem; color: var(--text-dim); margin-bottom: 5px; }
 
-        /* Bar Progres Skills */
         .skill-item { margin-bottom: 22px; }
         .skill-info { display: flex; justify-content: space-between; margin-bottom: 8px; font-weight: 600; font-size: 0.85rem; }
         .bar-bg { width: 100%; height: 7px; background: rgba(255,255,255,0.05); border-radius: 10px; overflow: hidden; }
         .bar-fill { height: 100%; background: linear-gradient(90deg, var(--accent), #5856d6); width: 0; transition: width 1.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
 
-        /* Halaman Depan (Landing) */
         #front-page { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
         .profile-main { width: 170px; height: 170px; border-radius: 50%; border: 4px solid var(--accent); margin-bottom: 25px; box-shadow: 0 0 50px var(--accent-glow); object-fit: cover; }
         .btn-start { padding: 18px 40px; background: var(--accent); color: white; border-radius: 50px; border: none; font-weight: 700; cursor: pointer; transition: 0.3s; box-shadow: 0 10px 30px var(--accent-glow); margin-top: 40px;}
         .btn-start:hover { transform: scale(1.05); box-shadow: 0 15px 40px var(--accent-glow); }
 
-        /* Tombol Kontak */
         .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; }
         .contact-btn { background: var(--card); padding: 20px; border-radius: 20px; display: flex; align-items: center; gap: 15px; text-decoration: none; color: white; border: 1px solid var(--border); transition: 0.3s; }
         .contact-btn:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-3px); }
 
-        /* Animasi Intro Welcome */
         #intro { 
             position: fixed; top: 0; z-index: 10000; width: 100%; height: 100%; 
             background: #000; display: none; justify-content: center; align-items: center; 
@@ -95,7 +98,32 @@
         }
         .hidden-intro { transform: translateY(-100%); }
 
-        @media (max-width: 600px) { .org-grid, .contact-grid { grid-template-columns: 1fr; } }
+        /* FIX 2: PERBAIKAN TAMPILAN HP (ABOUT ME & GRID) */
+        @media (max-width: 600px) { 
+            .org-grid, .contact-grid { grid-template-columns: 1fr; } 
+            
+            #about .card {
+                flex-direction: column; /* Foto pindah ke atas teks */
+                text-align: center;
+                gap: 15px;
+            }
+
+            #about .card div {
+                width: 100%; /* Pastikan teks mengambil lebar penuh */
+            }
+
+            #about .card p {
+                text-align: center; /* Teks rata tengah di HP agar lebih rapi */
+                word-spacing: normal; /* Hindari teks renggang berlebihan */
+            }
+
+            .profile-main {
+                width: 140px;
+                height: 140px;
+            }
+            
+            nav.show-nav { bottom: 20px; }
+        }
     </style>
 </head>
 <body>
@@ -201,7 +229,7 @@
                     </div>
                 </div>
             </a>
-            <a href="starlight.index.html" style="text-decoration: none; color: inherit;">
+            <a href="Starlight.index.html" style="text-decoration: none; color: inherit;">
                 <div class="org-card">
                     <img src="Foto Starlight (2).jpeg" class="org-img">
                     <div class="org-detail">
@@ -243,7 +271,6 @@
     </section>
 
     <script>
-        // Fungsi utama untuk pindah antar halaman (tab)
         function goTo(id) {
             const pages = document.querySelectorAll('.page');
             pages.forEach(p => { 
@@ -257,12 +284,10 @@
                 setTimeout(() => target.classList.add('active'), 10);
             }
 
-            // Update status tombol navigasi yang aktif
             document.querySelectorAll('nav a').forEach(a => a.classList.remove('active'));
             const navLink = document.getElementById('nav-' + id);
             if (navLink) navLink.classList.add('active');
 
-            // Jalankan animasi bar skill saat tab skill dibuka
             if (id === 'skill') {
                 setTimeout(() => {
                     document.querySelectorAll('.skill-item').forEach(item => {
@@ -274,14 +299,12 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Fungsi tombol "Get know about me" untuk masuk ke Dashboard
         function unlock() {
             document.getElementById('front-page').style.display = 'none';
             document.getElementById('navbar').classList.add('show-nav');
             goTo('about');
         }
 
-        // Jalankan animasi Intro Welcome saat pertama kali load
         window.addEventListener('DOMContentLoaded', () => {
             const intro = document.getElementById('intro');
             const frontPage = document.getElementById('front-page');
@@ -301,5 +324,4 @@
         });
     </script>
 </body>
-
 </html>
