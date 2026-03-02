@@ -3,109 +3,109 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Apa itu BYTE? | Kevin Portfolio</title>
+    <title>Kevin | BYTE UMN</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
     <style>
         :root {
             --bg: #050507;
-            --card: rgba(18, 18, 20, 0.8);
-            --accent: #007aff; /* Biru khas portofolio kamu */
+            --card: rgba(18, 18, 20, 0.9);
+            --accent: #007aff;
             --text: #ffffff;
             --text-dim: #a1a1a6;
             --border: rgba(255, 255, 255, 0.1);
         }
 
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
         body { 
-            background: var(--bg);
-            color: var(--text);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            padding: 20px;
-        }
-
-        .content-wrapper {
-            max-width: 600px;
-            width: 100%;
-            display: flex;
-            flex-direction: column; 
-            align-items: center;    
-            text-align: center;     
-            background: var(--card);
-            padding: 40px;
-            border-radius: 30px;
-            border: 1px solid var(--border);
-            backdrop-filter: blur(10px);
-        }
-
-        .logo-project {
-            width: 150px; 
-            height: auto;
-            border-radius: 15px; 
-            margin-bottom: 25px;
-            /* Tanpa efek biru-biru (glow) sesuai permintaan kamu sebelumnya */
-        }
-
-        h1 {
-            font-size: 2rem;
-            margin: 10px 0;
-            color: var(--accent);
-        }
-
-        .role-tag {
-            background: rgba(0, 122, 255, 0.1);
-            color: var(--accent);
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-            margin-bottom: 20px;
-            border: 1px solid var(--accent);
-        }
-
-        p {
-            color: var(--text-dim);
+            background-color: var(--bg);
+            background-image: 
+                linear-gradient(var(--border) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border) 1px, transparent 1px),
+                /* Overlay gelap 0.9 biar teks Byte lo makin kebaca */
+                linear-gradient(rgba(5, 5, 7, 0.9), rgba(5, 5, 7, 0.9)), 
+                url('Foto Byte.jpeg'); 
+            background-size: 40px 40px, 40px 40px, cover, cover;
+            background-position: center;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+            color: var(--text); 
+            font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "Segoe UI", sans-serif;
             line-height: 1.6;
-            font-size: 1.05rem;
-            margin-bottom: 20px;
         }
 
-        .btn-back {
+        /* KOTAK KONTEN UTAMA */
+        .page {
+            max-width: 750px;
+            margin: 0 auto;
+            padding: 80px 20px 100px; /* Padding atas biar simetris */
+        }
+
+        .card { 
+            background: var(--card); 
+            padding: 40px; 
+            border-radius: 28px; 
+            border: 1px solid var(--border); 
+            backdrop-filter: blur(15px);
+            text-align: center;
+        }
+
+        .logo-img {
+            width: 140px; /* Ukuran logo Byte disesuaiin */
+            height: auto;
+            border-radius: 20px;
+            margin-bottom: 25px;
+        }
+
+        h1 { font-size: 2.2rem; color: var(--accent); margin-bottom: 15px; }
+        
+        p { color: var(--text-dim); margin-bottom: 30px; text-align: center; font-size: 1.05rem; }
+
+        /* TOMBOL BIRU DI BAWAH */
+        .btn-link {
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            margin-top: 20px;
-            padding: 12px 28px;
             background: var(--accent);
             color: white;
-            text-decoration: none;
+            padding: 12px 30px;
             border-radius: 50px;
-            font-weight: bold;
+            text-decoration: none;
+            font-weight: 700;
             transition: 0.3s;
+            box-shadow: 0 10px 20px rgba(0, 122, 255, 0.3);
         }
 
-        .btn-back:hover { 
-            transform: translateY(-3px);
-            box-shadow: 0 10px 20px rgba(0, 122, 255, 0.3);
+        .btn-link:hover { 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 30px rgba(0, 122, 255, 0.5); 
+        }
+
+        @media (max-width: 600px) {
+            h1 { font-size: 1.8rem; }
+            .card { padding: 30px 20px; }
+            .page { padding-top: 60px; }
         }
     </style>
 </head>
 <body>
 
-    <div class="content-wrapper">
-        <img src="Byte.jpeg" alt="Logo BYTE" class="logo-project">
-        <h1>Tentang BYTE UMN</h1>
-        <p>
-            <strong>BYTE</strong> merupakan salah satu program kerja yang diselenggarakan oleh Himpunan Mahasiswa Informatika UMN sebagai ajang lomba sekaligus acara untuk mahasiswa informatika untuk menguatkan solidaritas
-        </p>
+    <main class="page">
+        <div class="card">
+            <img src="Byte.jpeg" class="logo-img" alt="Logo BYTE">
+            
+            <h1>Tentang BYTE UMN</h1>
+            
+            <p>
+                <strong>BYTE </strong> merupakan salah satu program kerja yang diselenggarakan oleh Himpunan Mahasiswa Informatika UMN sebagai ajang lomba sekaligus acara untuk mahasiswa informatika untuk menguatkan solidaritas.
+            </p>
 
-        <a href="index.html#experience" class="btn-back">
-            <i class="fas fa-arrow-left"></i> Kembali ke Portofolio
-        </a>
-    </div>
+            <a href="index.html#experience" class="btn-link">
+                <i class="fas fa-arrow-left"></i> Kembali ke Portofolio
+            </a>
+        </div>
+    </main>
 
 </body>
 </html>
